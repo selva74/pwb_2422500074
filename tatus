@@ -1,0 +1,51 @@
+warning: in the working copy of 'application/config/routes.php', LF will be replaced by CRLF the next time Git touches it
+[1mdiff --git a/application/config/routes.php b/application/config/routes.php[m
+[1mindex ab0cbdb..5dd95eb 100644[m
+[1m--- a/application/config/routes.php[m
+[1m+++ b/application/config/routes.php[m
+[36m@@ -55,3 +55,13 @@[m [m$route['translate_uri_dashes'] = FALSE;[m
+ $route['admin'] = 'administrator/Admin_dashboard_controller/index';[m
+ $route['admin/login'] = 'administrator/admin_auth_controller/index';[m
+ $route['admin/logout'] = 'administrator/admin_auth_controller/logout';[m
+[32m+[m[32m#admin kategori[m
+[32m+[m[32m$route['administrator/kategori'] = 'administrator/kategori_controller/index';[m
+[32m+[m[32m$route['administrator/kategori/tambah'] = 'administrator/kategori_controller/tambah_kategori';[m
+[32m+[m[32m$route['administrator/kategori/hapus/(:num)'] = 'administrator/kategori_controller/hapus_kategori/$1';[m
+[32m+[m[32m$route['administrator/kategori/ubah/(:num)'] = 'administrator/kategori_controller/ubah_kategori/$1';[m
+[32m+[m[32m#produk[m
+[32m+[m[32m$route['administrator/produk']                = 'administrator/Produk_controller/index';[m
+[32m+[m[32m$route['administrator/produk/tambah']         = 'administrator/Produk_controller/tambah_produk';[m
+[32m+[m[32m$route['administrator/produk/ubah/(:num)']    = 'administrator/Produk_controller/ubah_produk/$1';[m
+[32m+[m[32m$route['administrator/produk/hapus/(:num)']   = 'administrator/Produk_controller/hapus_produk/$1';[m
+\ No newline at end of file[m
+[1mdiff --git a/application/views/administrator/templates/sidebar.php b/application/views/administrator/templates/sidebar.php[m
+[1mindex f8f91c2..d3dd462 100644[m
+[1m--- a/application/views/administrator/templates/sidebar.php[m
+[1m+++ b/application/views/administrator/templates/sidebar.php[m
+[36m@@ -39,21 +39,21 @@[m
+             <a href="#" class="nav-link active">[m
+               <i class="nav-icon fas fa-tachometer-alt"></i>[m
+               <p>[m
+[31m-                Starter Pages[m
+[32m+[m[32m                Master[m
+                 <i class="right fas fa-angle-left"></i>[m
+               </p>[m
+             </a>[m
+             <ul class="nav nav-treeview">[m
+               <li class="nav-item">[m
+[31m-                <a href="#" class="nav-link active">[m
+[32m+[m[32m                <a href="<?= base_url() ?>administrator/kategori" class="nav-link active">[m
+                   <i class="far fa-circle nav-icon"></i>[m
+[31m-                  <p>Active Page</p>[m
+[32m+[m[32m                  <p>Kategori</p>[m
+                 </a>[m
+               </li>[m
+               <li class="nav-item">[m
+[31m-                <a href="#" class="nav-link">[m
+[32m+[m[32m                <a href="<?= base_url() ?>administrator/produk" class="nav-link">[m
+                   <i class="far fa-circle nav-icon"></i>[m
+[31m-                  <p>Inactive Page</p>[m
+[32m+[m[32m                  <p>Produk</p>[m
+                 </a>[m
+               </li>[m
+             </ul>[m
